@@ -52,7 +52,7 @@ const WorkProcess = () => {
                 <img
                   src={step.imgSrc}
                   alt={step.title}
-                  className="w-16 sm:w-20 md:w-[150px] h-auto object-contain select-none transition-transform duration-300 ease-out group-hover:-translate-y-1"
+                  className="w-28 sm:w-32 md:w-[250px] h-auto object-contain select-none transition-transform duration-300 ease-out group-hover:-translate-y-1"
                   draggable={false}
                 />
                 <h3 className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-xl font-semibold text-blue-900">
@@ -81,7 +81,7 @@ const WorkProcess = () => {
                 <img
                   src={step.imgSrc}
                   alt={step.title}
-                  className="w-16 sm:w-20 md:w-[150px] h-auto object-contain select-none transition-transform duration-300 ease-out group-hover:-translate-y-1"
+                  className="w-28 sm:w-32 md:w-[250px] h-auto object-contain select-none transition-transform duration-300 ease-out group-hover:-translate-y-1"
                   draggable={false}
                 />
                 <h3 className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-xl font-semibold text-blue-900">
