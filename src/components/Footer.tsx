@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -7,23 +7,15 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section - Guarantees and Assurances */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-12">
+          
           {/* Lowest Price Guaranteed */}
           <div className="border border-gray-400 rounded-lg p-6 bg-gray-800">
             <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center relative">
-                  <div className="text-xs font-bold text-gray-400 text-center leading-tight">
-                    <div className="absolute top-1 left-1/2 transform -translate-x-1/2">GUARANTEED</div>
-                    <div className="mt-4">LOWEST</div>
-                    <div>PRICES</div>
-                    <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">GUARANTEED</div>
-                  </div>
-                  <div className="absolute top-2 left-2 w-1 h-1 bg-gray-400 rounded-full"></div>
-                  <div className="absolute top-2 right-2 w-1 h-1 bg-gray-400 rounded-full"></div>
-                </div>
-              </div>
+              
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-300 mb-2">LOWEST PRICE GUARANTEED</h3>
+                <h3 className="text-lg font-bold text-gray-300 mb-2">
+                  LOWEST PRICE GUARANTEED
+                </h3>
                 <p className="text-sm text-gray-400 leading-relaxed">
                   No false claims. You get what you see. Lowest Price Guaranteed on home interiors.
                 </p>
@@ -34,23 +26,11 @@ const Footer = () => {
           {/* Timely Delivery Assurance */}
           <div className="border border-gray-400 rounded-lg p-6 bg-gray-800">
             <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 border-2 border-gray-400 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 border border-gray-400 transform rotate-45"></div>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-xs font-bold text-gray-400 text-center">
-                      <div>DELIVERY</div>
-                      <div>ASSURANCE</div>
-                    </div>
-                  </div>
-                  <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400"></div>
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400"></div>
-                </div>
-              </div>
+             
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-300 mb-2">TIMELY DELIVERY ASSURANCE</h3>
+                <h3 className="text-lg font-bold text-gray-300 mb-2">
+                  TIMELY DELIVERY ASSURANCE
+                </h3>
                 <p className="text-sm text-gray-400 leading-relaxed">
                   Promised Timeline = Actual Date of Delivery. We strictly follow the timelines promised to you.
                 </p>
@@ -61,26 +41,18 @@ const Footer = () => {
           {/* Low Cost EMI */}
           <div className="border border-gray-400 rounded-lg p-6 bg-gray-800">
             <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center relative">
-                  <div className="w-12 h-12 border border-gray-400 rounded-full flex items-center justify-center">
-                    <div className="text-xs font-bold text-gray-400 text-center">
-                      <div>LOW COST</div>
-                      <div>EMI%</div>
-                    </div>
-                  </div>
-                  <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400"></div>
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400"></div>
-                </div>
-              </div>
+              
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-300 mb-2">LOW COST EMI</h3>
+                <h3 className="text-lg font-bold text-gray-300 mb-2">
+                  LOW COST EMI
+                </h3>
                 <p className="text-sm text-gray-400 leading-relaxed">
                   Get in touch with our designers to know more...
                 </p>
               </div>
             </div>
           </div>
+
         </div>
 
         {/* Middle Section - Company Information and Navigation */}
@@ -90,9 +62,6 @@ const Footer = () => {
             <div className="text-2xl font-bold text-white mb-2">
               The Architecture Firm
             </div>
-            {/* <div className="text-sm text-gray-400">
-        
-            </div> */}
           </div>
 
           {/* Overview */}
@@ -103,20 +72,6 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white transition-colors">Trends</a></li>
             </ul>
           </div>
-
-          {/* Network Sites */}
-          {/* <div>
-            <h3 className="text-pink-400 font-semibold mb-4">Network Sites</h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">Square Yards UAE</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Prop VR</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Square Yards Canada</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Square Yards India</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Prop AMC</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Urban Money</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">UM Oceania</a></li>
-            </ul>
-          </div> */}
 
           {/* Interior */}
           <div>
@@ -135,8 +90,6 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Lending Partners</a></li>
-              {/* <li><a href="#" className="hover:text-white transition-colors">Refer And Earn</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li> */}
             </ul>
           </div>
         </div>
@@ -148,10 +101,10 @@ const Footer = () => {
             <div>
               <h3 className="text-pink-400 font-semibold mb-4">Contact Us</h3>
               <div className="text-sm text-gray-300 space-y-2">
-                {/* <p>Call us on, </p>
-                <p className="font-bold text-white"></p> */}
                 <p>Write to us at</p>
                 <p className="text-white">info@thearchitecturefirm.in</p>
+                <p>Call us at</p>
+                <p className="text-white">+91 99624 57539</p>
               </div>
             </div>
 
@@ -160,7 +113,7 @@ const Footer = () => {
               <h3 className="text-pink-400 font-semibold mb-4">Address</h3>
               <div className="text-sm text-gray-300 space-y-2">
                 <p>W-126, 3rd Floor, 3rd Ave, Anna Nagar,</p>
-                <p className=" text-white">Chennai, Tamil Nadu 60004</p>
+                <p className="text-white">Chennai, Tamil Nadu 60004</p>
               </div>
             </div>
 
