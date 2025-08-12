@@ -11,37 +11,37 @@ const clientLogos = [
 ];
 
 const ClientsMarquee: React.FC = () => {
+  // Calculate total width of all logos with gaps
+  const totalWidth = clientLogos.length * (96 + 72); // logo width + gap
+
   const keyframes = `
-    @keyframes marquee-right {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+    @keyframes seamlessMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-${totalWidth / 2}px); }
     }
   `;
 
   return (
-    <div style={{ width: "100%", background: "#fff", padding: "2rem 0", textAlign: "center" }}>
-      {/* Inject the keyframes */}
+    <div className="w-full bg-white py-8 text-center">
       <style>{keyframes}</style>
 
-      <h2 style={{ fontSize: "1.8rem", marginBottom: "1.5rem", fontWeight: "600" }}>
-        Our Brand Partners
-      </h2>
+      <div className="text-center mb-12 sm:mb-16">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-900 mb-4 sm:mb-6">
+          Our Brand Partners
+        </h2>
+      </div>
 
-      <div style={{ overflow: "hidden", whiteSpace: "nowrap" }}>
-        <div
-          style={{
-            display: "flex",
-            gap: "2.5rem",
-            animation: "marquee-right 20s linear infinite",
-          }}
-        >
-          {[...clientLogos, ...clientLogos].map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Client ${index + 1}`}
-              style={{ height: "4rem", width: "auto" }}
-            />
+      <div className="relative overflow-hidden">
+        <div className="flex w-max" style={{ animation: `seamlessMarquee ${clientLogos.length * 3}s linear infinite` }}>
+          {/* Render logos 3 times to ensure seamless looping */}
+          {[...clientLogos, ...clientLogos, ...clientLogos].map((logo, index) => (
+            <div key={index} className="mx-9 flex-shrink-0">
+              <img
+                src={logo}
+                alt={`Client ${index + 1}`}
+                className="h-8 w-auto object-contain"
+              />
+            </div>
           ))}
         </div>
       </div>
