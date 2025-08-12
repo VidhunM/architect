@@ -22,7 +22,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Mr.ELAYARAJ',
-    title: 'CONSTRUCTION HEAD',
+    title: 'Construction Head',
     image: '/images/team/Picture2.png',
     details: 'Head of construction operations.',
   },
@@ -33,7 +33,7 @@ const teamMembers: TeamMember[] = [
     details: 'Oversees all projects.',
   },
   {
-    name: 'Ms. KANISKA',
+    name: 'Ms. KANISHKA',
     title: 'Design Head',
     image: '/images/team/Picture4.png',
     details: 'Head of design team.',
@@ -64,7 +64,9 @@ const OurTeam = () => {
   return (
     <section id="our-team" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-blue-900">Our Team</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-blue-900">
+          Our Team
+        </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
           {teamMembers.map((member, idx) => (
             <div
@@ -72,16 +74,30 @@ const OurTeam = () => {
               className="flex flex-col items-center cursor-pointer group"
               onClick={() => setSelected(member)}
             >
-              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center mb-4 border-4 border-blue-100 group-hover:border-blue-400 transition">
+              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center mb-4 border-4 border-blue-100 group-hover:border-blue-400 transition shrink-0">
                 {member.image ? (
-                  <img src={member.image} alt={member.name} className="object-cover w-full h-full" />
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className={`w-full h-full object-cover ${idx === 0 ? 'object-center' : 'object-top'}`}
+                  />
                 ) : (
-                  <svg className="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" /></svg>
+                  <svg
+                    className="w-16 h-16 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
+                  </svg>
                 )}
               </div>
-              <div className="text-center">
-                <h3 className="font-semibold text-lg text-gray-800">{member.name}</h3>
-                <p className="text-sm text-gray-500">{member.title}</p>
+              <div className="text-center px-2">
+                <h3 className="font-semibold text-lg text-gray-800 leading-tight">
+                  {member.name}
+                </h3>
+                <p className="text-sm text-gray-500 leading-snug whitespace-normal break-words mt-1 uppercase">
+                  {member.title}
+                </p>
               </div>
             </div>
           ))}
@@ -99,15 +115,25 @@ const OurTeam = () => {
                 &times;
               </button>
               <div className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4">
+                <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4 flex items-center justify-center">
                   {selected.image ? (
-                    <img src={selected.image} alt={selected.name} className="object-cover w-full h-full" />
+                    <img
+                      src={selected.image}
+                      alt={selected.name}
+                      className="w-full h-full object-cover object-top"
+                    />
                   ) : (
-                    <svg className="w-16 h-16 text-gray-400 mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" /></svg>
+                    <svg
+                      className="w-16 h-16 text-gray-400 mx-auto"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
+                    </svg>
                   )}
                 </div>
                 <h3 className="font-bold text-xl mb-1">{selected.name}</h3>
-                <p className="text-gray-600 mb-2">{selected.title}</p>
+                <p className="text-gray-600 mb-2 uppercase">{selected.title}</p>
                 {selected.details && (
                   <p className="text-gray-700 text-center">{selected.details}</p>
                 )}
