@@ -87,15 +87,16 @@ const Header = () => {
                   >
                     Our Team
                   </button>
-                  <button
-                    onClick={() => scrollToSection("what-we-do")}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
-                  >
-                    Our Service
-                  </button>
                 </div>
               )}
             </div>
+
+            <button
+              onClick={() => scrollToSection("what-we-do")}
+              className="text-gray-700 font-medium hover:text-blue-900 transition-colors"
+            >
+              Our Service
+            </button>
 
             <button
               onClick={() => scrollToSection("architecture")}
@@ -215,14 +216,14 @@ const Header = () => {
                 >
                   Our Team
                 </button>
-                <button
-                  onClick={() => scrollToSection("what-we-do")}
-                  className="block w-full text-left py-2 text-sm text-gray-700"
-                >
-                  Our Service
-                </button>
               </div>
             )}
+            <button
+              onClick={() => scrollToSection("what-we-do")}
+              className="text-gray-700 text-left py-3"
+            >
+              Our Service
+            </button>
             <button
               onClick={() => scrollToSection("architecture")}
               className="text-gray-700 text-left py-3"
