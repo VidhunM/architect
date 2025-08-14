@@ -1,4 +1,5 @@
-// import React from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 // type Step = {
 //   number: number;
@@ -122,7 +123,6 @@
 //     document.head.appendChild(style);
 //   }
 // }
-import React from 'react';
 
 type Step = {
   number: number;
@@ -153,20 +153,35 @@ const WorkProcess = () => {
     <section id="work-process" className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="container mx-auto px-3 sm:px-4 max-w-7xl">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-900 mb-4 sm:mb-6">
+          <motion.h2
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl font-bold text-blue-900 mb-4"
+          >
+            PROJECT MANAGEMENT
+          </motion.h2>
+          <motion.h3
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-2xl font-semibold text-blue-900 mb-4"
+          >
             OUR PROCESS
-          </h2>
+          </motion.h3>
         </div>
 
-        {/* Home Interiors */}
+        {/* Home Constructions */}
         <div className="mb-10 sm:mb-12">
           <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-blue-900 text-center mb-6 sm:mb-8">
-            Home Interiors
+            Home Constructions
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {stepsA.map((step, idx) => (
+            {stepsB.map((step, idx) => (
               <div
-                key={`A-${step.number}`}
+                key={`B-${step.number}`}
                 className="group flex flex-col items-center text-center wp-slide p-3 sm:p-4"
                 style={{ animationDelay: `${idx * 150}ms` }}
               >
@@ -187,15 +202,15 @@ const WorkProcess = () => {
           </div>
         </div>
 
-        {/* Home Constructions */}
+        {/* Home Interiors */}
         <div>
           <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-blue-900 text-center mb-6 sm:mb-8">
-            Home Constructions
+            Home Interiors
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {stepsB.map((step, idx) => (
+            {stepsA.map((step, idx) => (
               <div
-                key={`B-${step.number}`}
+                key={`A-${step.number}`}
                 className="group flex flex-col items-center text-center wp-slide p-3 sm:p-4"
                 style={{ animationDelay: `${idx * 150}ms` }}
               >

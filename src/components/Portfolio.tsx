@@ -2,44 +2,121 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 
-// Helper to chunk array into groups of n
-function chunkArray<T>(arr: T[], size: number): T[][] {
-  const result: T[][] = [];
-  for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size));
+// Project images - all 17 images from vidunnnn folder
+const projectImages = [
+  {
+    id: 1,
+    image: "/images/vidunnnn/a(1).png",
+    category: "Interior Design"
+  },
+  {
+    id: 2,
+    image: "/images/vidunnnn/a(2).png",
+    category: "Interior Design"
+  },
+  {
+    id: 3,
+    image: "/images/vidunnnn/a(3).png",
+    category: "Interior Design"
+  },
+  {
+    id: 4,
+    image: "/images/vidunnnn/a(4).png",
+    category: "Interior Design"
+  },
+  {
+    id: 5,
+    image: "/images/vidunnnn/a(5).png",
+    category: "Interior Design"
+  },
+  {
+    id: 6,
+    image: "/images/vidunnnn/a(6).png",
+    category: "Interior Design"
+  },
+  {
+    id: 7,
+    image: "/images/vidunnnn/a(7).png",
+    category: "Interior Design"
+  },
+  {
+    id: 8,
+    image: "/images/vidunnnn/a(8).png",
+    category: "Interior Design"
+  },
+  {
+    id: 9,
+    image: "/images/vidunnnn/a(9).png",
+    category: "Interior Design"
+  },
+  {
+    id: 10,
+    image: "/images/vidunnnn/a(10).png",
+    category: "Interior Design"
+  },
+  {
+    id: 11,
+    image: "/images/vidunnnn/a(11).png",
+    category: "Interior Design"
+  },
+  {
+    id: 12,
+    image: "/images/vidunnnn/a(12).png",
+    category: "Interior Design"
+  },
+  {
+    id: 13,
+    image: "/images/vidunnnn/a(13).png",
+    category: "Interior Design"
+  },
+  {
+    id: 14,
+    image: "/images/vidunnnn/a(14).png",
+    category: "Interior Design"
+  },
+  {
+    id: 15,
+    image: "/images/vidunnnn/a(15).png",
+    category: "Interior Design"
+  },
+  {
+    id: 16,
+    image: "/images/vidunnnn/a(16).png",
+    category: "Interior Design"
+  },
+  {
+    id: 17,
+    image: "/images/vidunnnn/a(17).png",
+    category: "Interior Design"
   }
-  return result;
-}
+];
 
-// Remove architectureImages and only use viunnnnImages
-const viunnnnImages = Array.from({ length: 17 }, (_, i) => `/images/vidunnnn/a(${i + 1}).png`);
-const viunnnnSlides = chunkArray(viunnnnImages, 3); // three images per slide
-
-const slides: string[][] = [...viunnnnSlides];
-
-interface SlideProps {
-  key: string;
-  src: string;
-}
+// Helper function to get current set of images (10 first, then 7)
+const getCurrentImageSet = (currentIndex: number) => {
+  if (currentIndex === 0) {
+    // First set: 10 images
+    return projectImages.slice(0, 10);
+  } else {
+    // Second set: 7 images
+    return projectImages.slice(10, 17);
+  }
+};
 
 const Portfolio: React.FC = () => {
-  const [current, setCurrent] = useState<number>(0);
-  const totalSlides = slides.length;
-
-  const [direction, setDirection] = useState<number>(0);
-  const dragThreshold = 100; // px
+  const [currentSet, setCurrentSet] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const autoplayRef = useRef<number | null>(null);
+  
+  // Total sets: 2 (10 images + 7 images)
+  const totalSets = 2;
 
   // Handle drag/swipe
   const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     setIsDragging(false);
-    if (info.offset.x < -dragThreshold) {
-      setDirection(1);
-      setCurrent((prev) => (prev + 1) % slides.length);
-    } else if (info.offset.x > dragThreshold) {
-      setDirection(-1);
-      setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+    if (info.offset.x < -100) {
+      setCurrentSet((prev) => (prev + 1) % totalSets);
+    } else if (info.offset.x > 100) {
+      setCurrentSet((prev) => (prev - 1 + totalSets) % totalSets);
     }
   };
 
@@ -47,15 +124,14 @@ const Portfolio: React.FC = () => {
   useEffect(() => {
     if (isDragging) return;
     autoplayRef.current = setInterval(() => {
-      setDirection(1);
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4000);
+      setCurrentSet((prev) => (prev + 1) % totalSets);
+    }, 5000);
     return () => {
       if (autoplayRef.current) {
         clearInterval(autoplayRef.current);
       }
     };
-  }, [isDragging, slides.length]);
+  }, [isDragging, totalSets]);
 
   const variants = {
     enter: (direction: number) => ({
@@ -80,28 +156,55 @@ const Portfolio: React.FC = () => {
     })
   };
 
+  // Get current set of images
+  const currentImages = getCurrentImageSet(currentSet);
+
   return (
     <section id="portfolio" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ y: 40, opacity: 0 }}
+          initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Our Projects</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore a selection of our recent architectural and interior design projects. Each image showcases our commitment to quality, creativity, and client satisfaction.
-          </p>
+          <motion.h2
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-3xl font-bold text-blue-900 mb-4"
+          >
+            BEST OF OUR PROJECTS
+          </motion.h2>
+          
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-4"
+          />
+          
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+          >
+            Explore our innovative architectural and interior design projects showcasing creativity and excellence
+          </motion.p>
         </motion.div>
-        <div className="relative flex flex-col items-center">
-          <div className="w-full max-w-4xl mx-auto overflow-hidden">
-            <div className="relative h-[22rem] sm:h-[30rem]">
-              <AnimatePresence initial={false} custom={direction}>
+
+        {/* Project Grid with Sliding */}
+        <div className="relative">
+          <div className="w-full max-w-6xl mx-auto overflow-hidden">
+            <div className="relative h-[400px] md:h-[500px]">
+              <AnimatePresence initial={false}>
                 <motion.div
-                  key={current}
-                  custom={direction}
+                  key={currentSet}
                   variants={variants}
                   initial="enter"
                   animate="center"
@@ -110,26 +213,79 @@ const Portfolio: React.FC = () => {
                   dragConstraints={{ left: 0, right: 0 }}
                   onDragStart={() => setIsDragging(true)}
                   onDragEnd={handleDragEnd}
-                  className="absolute top-0 left-0 w-full h-full flex justify-center items-center cursor-grab active:cursor-grabbing"
-                  style={{ pointerEvents: 'auto' }}
+                  className="absolute top-0 left-0 w-full h-full cursor-grab active:cursor-grabbing"
                 >
-                  <div className={`flex w-full h-full gap-4 justify-center items-center ${slides[current].length > 1 ? 'px-4' : ''} flex-col md:flex-row`}>
-                    {slides[current].map((src, idx) => (
-                      <img
-                        key={src}
-                        src={src}
+                  {/* Grid Layout - Responsive grid for 10 or 7 images */}
+                  <div className={`grid gap-3 h-full ${
+                    currentSet === 0 
+                      ? 'grid-cols-5 grid-rows-2' // 10 images: 5x2 grid
+                      : 'grid-cols-4 grid-rows-2' // 7 images: 4x2 grid (with 1 empty space)
+                  }`}>
+                    {currentImages.map((project, index) => (
+                      <motion.div
+                        key={project.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 + index * 0.05 }}
+                        className={`relative group ${
+                          currentSet === 0 
+                            ? 'col-span-1 row-span-1' // Equal size for 10 images
+                            : index < 4 
+                              ? 'col-span-1 row-span-1' // First 4 images
+                              : 'col-span-1 row-span-1' // Last 3 images
+                        }`}
+                      >
+                        <img
+                          src={project.image}
                         alt="Project"
-                        className={`object-cover rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300
-                          ${slides[current].length > 1 ? 'w-full h-56 md:w-1/3 md:h-full' : 'w-full h-full'}`}
-                        loading="lazy"
-                        style={{ objectPosition: 'center' }}
-                      />
+                          className="w-full h-full object-cover rounded-lg shadow-md group-hover:shadow-lg transition-all duration-300"
+                        />
+                        {/* VR Icon */}
+                        <div className="absolute top-2 left-2 bg-gray-800 bg-opacity-70 rounded-md p-1.5">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        {/* Project Title - Removed */}
+                      </motion.div>
                     ))}
                   </div>
                 </motion.div>
               </AnimatePresence>
             </div>
           </div>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {Array.from({ length: totalSets }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSet(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSet ? 'bg-blue-600 scale-125' : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={() => setCurrentSet((prev) => (prev - 1 + totalSets) % totalSets)}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 rounded-full p-3 shadow-lg hover:bg-opacity-100 transition-all duration-300"
+          >
+            <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            onClick={() => setCurrentSet((prev) => (prev + 1) % totalSets)}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 rounded-full p-3 shadow-lg hover:bg-opacity-100 transition-all duration-300"
+          >
+            <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

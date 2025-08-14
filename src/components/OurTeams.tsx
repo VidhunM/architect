@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 type TeamMember = {
   name: string;
@@ -15,7 +16,7 @@ const teamMembers: TeamMember[] = [
     details: 'CEO and lead architect with 20+ years of experience.',
   },
   {
-    name: 'NIDHI',
+    name: 'Ms. NIDHI',
     title: 'Managing Director, Architect',
     image: '/images/team/Picture1.png',
     details: 'Managing Director and architect.',
@@ -64,17 +65,51 @@ const OurTeam = () => {
   return (
     <section id="our-team" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-blue-900">
-          Our Team
-        </h2>
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl font-bold text-blue-900 mb-4"
+          >
+            OUR TEAM
+          </motion.h2>
+          
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-4"
+          />
+          
+          <motion.h3
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-2xl font-semibold text-blue-900 mb-4"
+          >
+            Meet our dedicated professionals
+          </motion.h3>
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
           {teamMembers.map((member, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="flex flex-col items-center cursor-pointer group"
               onClick={() => setSelected(member)}
             >
-              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center mb-4 border-4 border-blue-100 group-hover:border-blue-400 transition shrink-0">
+              <motion.div 
+                className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center mb-4 border-4 border-blue-100 group-hover:border-blue-400 transition shrink-0"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
                 {member.image ? (
                   <img
                     src={member.image}
@@ -90,23 +125,40 @@ const OurTeam = () => {
                     <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
                   </svg>
                 )}
-              </div>
-              <div className="text-center px-2">
+              </motion.div>
+              <motion.div 
+                className="text-center px-2"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 + 0.2 }}
+              >
                 <h3 className="font-semibold text-lg text-gray-800 leading-tight">
                   {member.name}
                 </h3>
                 <p className="text-sm text-gray-500 leading-snug whitespace-normal break-words mt-1 uppercase">
                   {member.title}
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 
         {/* Modal */}
         {selected && (
-          <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-8 max-w-md w-full relative shadow-lg">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+          >
+            <motion.div 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-lg p-8 max-w-md w-full relative shadow-lg"
+            >
               <button
                 className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl"
                 onClick={() => setSelected(null)}
@@ -114,7 +166,12 @@ const OurTeam = () => {
               >
                 &times;
               </button>
-              <div className="flex flex-col items-center">
+              <motion.div 
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="flex flex-col items-center"
+              >
                 <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4 flex items-center justify-center">
                   {selected.image ? (
                     <img
@@ -137,9 +194,9 @@ const OurTeam = () => {
                 {selected.details && (
                   <p className="text-gray-700 text-center">{selected.details}</p>
                 )}
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         )}
       </div>
     </section>

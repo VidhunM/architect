@@ -1,143 +1,101 @@
-import React from 'react';
-import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import React from "react";
+import { 
+  Facebook, 
+  Instagram, 
+  Linkedin, 
+  Youtube,
+  ShieldCheck,
+  Home,
+  Clock
+} from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Section - Guarantees and Assurances */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-12">
+        {/* Services Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12">
+          {/* No Quality Compromise */}
+          <div className="p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+            <div className="flex items-center mb-4">
+              <ShieldCheck className="h-6 w-6 text-blue-700 mr-3" />
+              <h3 className="text-xl font-bold text-blue-700">NO QUALITY COMPROMISE</h3>
+            </div>
+            <p className="text-gray-300">
+              We never compromise on our quality and ethics
+            </p>
+          </div>
           
-          {/* Lowest Price Guaranteed */}
-          <div className="border border-gray-400 rounded-lg p-6 bg-gray-800">
-            <div className="flex items-start space-x-4">
-              
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-300 mb-2">
-                  LOWEST PRICE GUARANTEED
-                </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  No false claims. You get what you see. Lowest Price Guaranteed on home interiors.
-                </p>
-              </div>
+          {/* Architectural Marvel */}
+          <div className="p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+            <div className="flex items-center mb-4">
+              <Home className="h-6 w-6 text-blue-700 mr-3" />
+              <h3 className="text-xl font-bold text-blue-700">ARCHITECTURAL MARVEL</h3>
             </div>
+            <p className="text-gray-300">
+              We are team of architects, involved for your project from design till execution
+            </p>
           </div>
-
-          {/* Timely Delivery Assurance */}
-          <div className="border border-gray-400 rounded-lg p-6 bg-gray-800">
-            <div className="flex items-start space-x-4">
-             
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-300 mb-2">
-                  TIMELY DELIVERY ASSURANCE
-                </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  Promised Timeline = Actual Date of Delivery. We strictly follow the timelines promised to you.
-                </p>
-              </div>
+          
+          {/* On Spot and On Time */}
+          <div className="p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+            <div className="flex items-center mb-4">
+              <Clock className="h-6 w-6 text-blue-700 mr-3" />
+              <h3 className="text-xl font-bold text-blue-700">ON SPOT AND ON TIME</h3>
             </div>
-          </div>
-
-          {/* Low Cost EMI */}
-          <div className="border border-gray-400 rounded-lg p-6 bg-gray-800">
-            <div className="flex items-start space-x-4">
-              
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-300 mb-2">
-                  LOW COST EMI
-                </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  Get in touch with our designers to know more...
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Middle Section - Company Information and Navigation */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 py-12">
-          {/* Company Logo */}
-          <div className="lg:col-span-1">
-            <div className="text-2xl font-bold text-white mb-2">
-              The Architecture Firm
-            </div>
-          </div>
-
-          {/* Overview */}
-          <div>
-            <h3 className="text-pink-400 font-semibold mb-4">Overview</h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">Interior Designer</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Trends</a></li>
-            </ul>
-          </div>
-
-          {/* Interior */}
-          <div>
-            <h3 className="text-pink-400 font-semibold mb-4">Interior</h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">FAQS</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms & Conditions</a></li>
-            </ul>
-          </div>
-
-          {/* More */}
-          <div>
-            <h3 className="text-pink-400 font-semibold mb-4">More</h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">Commercial Interiors</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Lending Partners</a></li>
-            </ul>
+            <p className="text-gray-300">
+              Promised Timeline = Actual Date of Delivery. We strictly follow the timelines promised to you.
+            </p>
           </div>
         </div>
 
-        {/* Bottom Section - Contact, Address, and Social Links */}
-        <div className="border-t border-gray-700 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Contact Us */}
-            <div>
-              <h3 className="text-pink-400 font-semibold mb-4">Contact Us</h3>
-              <div className="text-sm text-gray-300 space-y-2">
-                <p>Write to us at</p>
-                <p className="text-white">info@thearchitecturefirm.in</p>
-                <p>Call us at</p>
-                <p className="text-white">+91 99624 57539</p>
-              </div>
+        {/* Logo and Contact Section */}
+        <div className="border-t border-gray-700 py-12">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
+            {/* Logo - Big and Bright */}
+            <div className="mb-8 md:mb-0">
+              <img 
+                src="/images/logo2f.png" 
+                alt="The Architecture Firm Logo"
+                className="h-40 w-auto brightness-110 contrast-125 filter hover:brightness-125 transition-all"
+              />
             </div>
 
-            {/* Address */}
-            <div>
-              <h3 className="text-pink-400 font-semibold mb-4">Address</h3>
-              <div className="text-sm text-gray-300 space-y-2">
-                <p>W-126, 3rd Floor, 3rd Ave, Anna Nagar,</p>
-                <p className="text-white">Chennai, Tamil Nadu 60004</p>
+            {/* Contact Info */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-auto">
+              {/* Contact */}
+              <div>
+                <h3 className="font-semibold mb-4 text-blue-700">Contact Us</h3>
+                <p className="text-sm text-gray-300">Write to us at</p>
+                <p className="text-white font-medium hover:text-blue-400 transition-colors">info@thearchitecturefirm.in</p>
+                <p className="mt-2 text-sm text-gray-300">Call us at</p>
+                <p className="text-white font-medium hover:text-blue-400 transition-colors">+91 90624 57539</p>
               </div>
-            </div>
 
-            {/* Social Links */}
-            <div>
-              <h3 className="text-pink-400 font-semibold mb-4">Social Links</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-gray-700 hover:bg-pink-500 rounded-lg flex items-center justify-center transition-colors">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-700 hover:bg-pink-500 rounded-lg flex items-center justify-center transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-700 hover:bg-pink-500 rounded-lg flex items-center justify-center transition-colors">
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-700 hover:bg-pink-500 rounded-lg flex items-center justify-center transition-colors">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-                  </svg>
-                </a>
-                <a href="#" className="w-10 h-10 bg-gray-700 hover:bg-pink-500 rounded-lg flex items-center justify-center transition-colors">
-                  <Youtube className="h-5 w-5" />
-                </a>
+              {/* Social */}
+              <div>
+                <h3 className="font-semibold mb-4 text-blue-700">Follow Us</h3>
+                <div className="flex space-x-4">
+                  <a href="#" className="text-gray-300 hover:text-pink-500 transition-colors">
+                    <Instagram className="h-6 w-6" />
+                  </a>
+                  <a href="#" className="text-gray-300 hover:text-blue-500 transition-colors">
+                    <Facebook className="h-6 w-6" />
+                  </a>
+                  <a href="#" className="text-gray-300 hover:text-blue-600 transition-colors">
+                    <Linkedin className="h-6 w-6" />
+                  </a>
+                  <a href="#" className="text-gray-300 hover:text-red-500 transition-colors">
+                    <Youtube className="h-6 w-6" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div>
+                <h3 className="font-semibold mb-4 text-blue-700">Address</h3>
+                <p className="text-sm text-gray-300">W-126, 3rd Floor, 3rd Ave, Anna Nagar,</p>
+                <p className="text-white font-medium hover:text-blue-400 transition-colors">Chennai, Tamil Nadu 600040</p>
               </div>
             </div>
           </div>

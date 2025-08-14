@@ -4,18 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 const Hero = () => {
   const slides = [
     {
-      image: "/images/ab.jpg",
-      title: "Interior Design",
+      image: "/images/PROJECT MANAGEMENT.jpg",
       description: "Elegant and functional interiors that reflect your lifestyle.",
     },
     {
-      image: "/images/aa.jpg",
-      title: "Architectural Excellence",
+      image: "/images/interior-design-living-room-luxury-home.jpg",
       description: "Innovative architectural solutions blending art and function.",
     },
     {
-      image: "/images/pm.jpg",
-      title: "Project Management",
+      image: "/images/ARCHITECTURE.jpg",
       description: "Seamless execution and delivery, on time and on budget.",
     },
   ];
@@ -32,7 +29,7 @@ const Hero = () => {
   }, []);
 
   const slideVariants = {
-    enter: (direction: number) => ({
+    enter: (direction) => ({
       x: direction > 0 ? 200 : -200,
       scale: 1.05,
       opacity: 0,
@@ -43,7 +40,7 @@ const Hero = () => {
       opacity: 1,
       zIndex: 1,
     },
-    exit: (direction: number) => ({
+    exit: (direction) => ({
       x: direction > 0 ? -200 : 200,
       scale: 0.95,
       opacity: 0,
@@ -52,7 +49,10 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative w-full h-[80vh] md:h-screen overflow-hidden flex items-center justify-center">
+    <section
+      id="hero"
+      className="relative w-full h-[80vh] md:h-screen overflow-hidden flex items-center justify-center"
+    >
       {/* Background Slider */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence custom={direction}>
@@ -78,25 +78,35 @@ const Hero = () => {
       </div>
 
       {/* Slide Content */}
-      <div className="relative z-10 text-white text-center px-4 md:px-8 max-w-3xl">
+      <div className="relative z-10 flex flex-col items-center justify-center text-white text-center px-4 md:px-8 max-w-4xl">
         <motion.h1
-          key={slides[currentImage].title}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-6xl font-bold mb-4"
+          className="font-bold mb-4 
+                     text-2xl sm:text-3xl md:text-2xl
+                     leading-tight md:leading-snug"
         >
-          {slides[currentImage].title}
+          <span className="hidden sm:inline">
+            Architectural Excellence&nbsp;||&nbsp;Interior Design&nbsp;||&nbsp;Project Management
+          </span>
+          <span className="block sm:hidden">
+            Architectural Excellence<br />
+             Interior Design<br />
+             Project Management
+          </span>
         </motion.h1>
+
         <motion.p
           key={slides[currentImage].description}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-200 mb-6"
+          className="text-base sm:text-lg md:text-xl text-gray-200 mb-6"
         >
           {slides[currentImage].description}
         </motion.p>
+
         <motion.a
           href="#contact"
           initial={{ opacity: 0, y: 30 }}

@@ -1,73 +1,84 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const imageData = {
   "Living Room": [
-    "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg",
-    "https://images.pexels.com/photos/276625/pexels-photo-276625.jpeg",
-    "https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg",
-    "https://images.pexels.com/photos/3965505/pexels-photo-3965505.jpeg",
+    "/images/LIVING/modern-luxury-living-room-interior.jpg",
+    "/images/LIVING/modern-luxury-living-room-interior (1).jpg",
+    "/images/LIVING/modern-living-room-interior-design.jpg",
+    "/images/LIVING/modern-classic-style-hotel-room-with-lounge-dining-area-designer-furniture-3d-rendering.jpg",
+    // "/images/LIVING/minimaliste-interior-design.jpg",
+    // "/images/LIVING/elegant-living-room-interior-with-modern-furniture.jpg",
+    // "/images/LIVING/digital-lavender-style-interior-design.jpg",
+    // "/images/LIVING/blue-wall-living-room-3d-render-interior.jpg",
   ],
-  "Module Kitchen": [
-    "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
-    "https://images.pexels.com/photos/1358900/pexels-photo-1358900.jpeg",
-    "https://images.pexels.com/photos/5824883/pexels-photo-5824883.jpeg",
-    "https://images.pexels.com/photos/6186826/pexels-photo-6186826.jpeg",
+  "Modular Kitchen": [
+    "/images/Kitchen/3d-render-kitchen-interior-design.jpg",
+    "/images/Kitchen/669e5d0ae18eb2a161bbce59e4ad19a9.jpg",
+    "/images/Kitchen/c864e712e6ec9e83d7f28287f0f54f29.jpg",
+    "/images/Kitchen/dbb97bf61f13d77f7cced7ceb740b3df.jpg",
+    // "/images/Kitchen/modern-kitchen-design-with-blue-cabinets.jpg",
   ],
-  "Wardrobe": [
-  "https://images.pexels.com/photos/271722/pexels-photo-271722.jpeg",
-  "https://images.pexels.com/photos/6585750/pexels-photo-6585750.jpeg",
-  "https://images.pexels.com/photos/8386654/pexels-photo-8386654.jpeg",
-  "https://images.pexels.com/photos/5705496/pexels-photo-5705496.jpeg"
-],
-
-
+  
+  
   "Master Bedroom": [
-    "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg",
-    "https://images.pexels.com/photos/2631746/pexels-photo-2631746.jpeg",
-    "https://images.pexels.com/photos/7546275/pexels-photo-7546275.jpeg",
-    "https://images.pexels.com/photos/29086914/pexels-photo-29086914.jpeg",
+    "/images/Bedroom/modern-bedroom-interior-with-gray-accents.jpg",
+    "/images/Bedroom/modern-elegant-bedroom-interior.jpg",
+    "/images/Bedroom/room-interior-hotel-bedroom.jpg",
   ],
   "Kids Room": [
-    "https://images.pexels.com/photos/3965515/pexels-photo-3965515.jpeg",
-    "https://images.pexels.com/photos/3225487/pexels-photo-3225487.jpeg",
-    "https://images.pexels.com/photos/7546275/pexels-photo-7546275.jpeg",
-    "https://images.pexels.com/photos/7504920/pexels-photo-7504920.jpeg",
+    "/images/KIDS BEDROOM/soft-pastel-hues-room-children.jpg",
+    "/images/KIDS BEDROOM/small-juvenile-bedroom-arrangement.jpg",
+    "/images/KIDS BEDROOM/small-juvenile-bedroom-arrangement (1).jpg",
+    "/images/KIDS BEDROOM/small-juvenile-bedroom-arrangement (2).jpg",
+    // "/images/KIDS BEDROOM/ca88acc0-0b17-47c9-b20d-1361f095ce31.jpg",
+    // "/images/KIDS BEDROOM/1.jpg",
   ],
-  "Kitchen Wall Tiles": [
-    "https://images.pexels.com/photos/7534225/pexels-photo-7534225.jpeg",
-    "https://images.pexels.com/photos/31253595/pexels-photo-31253595.jpeg",
-    "https://images.pexels.com/photos/11089794/pexels-photo-11089794.jpeg",
-    "https://images.pexels.com/photos/10117716/pexels-photo-10117716.jpeg",
-  ],
-  "Kitchen Fake Ceiling": [
-    "https://images.pexels.com/photos/280232/pexels-photo-280232.jpeg",
-    "https://images.pexels.com/photos/7174388/pexels-photo-7174388.jpeg",
-    "https://images.pexels.com/photos/6312072/pexels-photo-6312072.jpeg",
-    "https://images.pexels.com/photos/6186826/pexels-photo-6186826.jpeg",
-  ],
-  "Balcony": [
-    "https://images.pexels.com/photos/1066727/pexels-photo-1066727.jpeg",
-    "https://images.pexels.com/photos/225222/pexels-photo-225222.jpeg",
-    "https://images.pexels.com/photos/4099388/pexels-photo-4099388.jpeg",
-    "https://images.pexels.com/photos/133920/pexels-photo-133920.jpeg",
-  ],
-};
+  
+} as const;
 
-const DesignIdeas = () => {
-  const [activeCategory, setActiveCategory] = useState("Living Room");
+type Category = keyof typeof imageData;
+
+const FromCeoDesk = () => {
+  const [activeCategory, setActiveCategory] = useState<Category>("Master Bedroom");
 
   return (
-    <section id="design-ideas" className="py-12 bg-white">
+    <section id="from-ceo-desk" className="py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-blue-900 mb-2">Design Ideas for Every Space</h1>
-          <p className="text-lg text-blue-900">Because every corner holds a unique design potential.</p>
+          <motion.h2
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl font-bold text-blue-900 mb-4"
+          >
+            OUR PROJECTS
+          </motion.h2>
+          <motion.h3
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-2xl font-semibold text-blue-900 mb-4"
+          >
+            Interior Design
+          </motion.h3>
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg text-blue-900"
+          >
+            Design Ideas for Every Space.
+          </motion.p>
         </div>
 
         {/* Category Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {Object.keys(imageData).map((category) => (
+          {(Object.keys(imageData) as Category[]).map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
@@ -82,13 +93,20 @@ const DesignIdeas = () => {
 
         {/* Images */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {imageData[activeCategory].map((imgUrl, index) => (
-            <div key={index} className="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+          {imageData[activeCategory].map((imgUrl: string, index: number) => (
+            <motion.div
+              key={index}
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-gray-100 rounded-lg overflow-hidden shadow-md"
+            >
               <img src={imgUrl} alt={activeCategory} className="w-full h-64 object-cover" />
               <div className="p-4">
                 <h3 className="font-bold text-lg mb-1 text-blue-900">{activeCategory} Design #{index + 1}</h3>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -103,4 +121,4 @@ const DesignIdeas = () => {
   );
 };
 
-export default DesignIdeas;
+export default FromCeoDesk;

@@ -1,32 +1,18 @@
-import React from 'react';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
-import {
-  Briefcase,
-  Settings,
-  DollarSign,
-  Globe2,
-  Clock,
-  ShieldCheck,
-  Box,
-  Eye,
-  Ban,
-  Headphones,
-} from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const items = [
-  { icon: <Briefcase className="w-12 h-12 text-blue-500" />, title: 'Expert Design & Professional Mastery' },
-  { icon: <Settings className="w-12 h-12 text-blue-500" />, title: 'Seamless Project Management' },
-  { icon: <DollarSign className="w-12 h-12 text-blue-500" />, title: 'Cost efficiency & Value engineering' },
-  { icon: <Globe2 className="w-12 h-12 text-blue-500" />, title: 'Sustainable & Futuristic design' },
-  { icon: <Clock className="w-12 h-12 text-blue-500" />, title: 'On time Delivery' },
-  { icon: <ShieldCheck className="w-12 h-12 text-blue-500" />, title: 'Assured Warranty' },
-  { icon: <Box className="w-12 h-12 text-blue-500" />, title: '3D modeling' },
-  { icon: <Eye className="w-12 h-12 text-blue-500" />, title: 'Visual Clarity & Modelling' },
-  { icon: <Ban className="w-12 h-12 text-blue-500" />, title: 'No Hidden Cost' },
-  { icon: <Headphones className="w-12 h-12 text-blue-500" />, title: 'Long term support & Assistance' },
+  { icon: '/images/WHY CHOOSE US/EXPERT DESIGN.png', title: 'Expert Design & Professional Mastery' },
+  { icon: '/images/WHY CHOOSE US/project-management (1).png', title: 'Seamless Project Management' },
+  { icon: '/images/WHY CHOOSE US/COST EFFECTIVE.png', title: 'Cost efficiency & Value engineering' },
+  { icon: '/images/WHY CHOOSE US/SUSTAINABLE DESIGN.png', title: 'Sustainable & Futuristic design' },
+  { icon: '/images/WHY CHOOSE US/ON TIME DELIVERY.png', title: 'On time Delivery' },
+  { icon: '/images/WHY CHOOSE US/ASSURED WARRANTY.png', title: 'Assured Warranty' },
+  { icon: '/images/WHY CHOOSE US/3D MODELING.png', title: '3D modeling' },
+  { icon: '/images/WHY CHOOSE US/VISUAL REALITY.png', title: 'Visual Clarity & Modelling' },
+  { icon: '/images/WHY CHOOSE US/NO HIDDEN COST.png', title: 'No Hidden Cost' },
 ];
 
 const settings = {
@@ -35,21 +21,9 @@ const settings = {
   autoplay: true,
   speed: 1000,
   autoplaySpeed: 2500,
-  slidesToShow: 3,
+  slidesToShow: 5,
   slidesToScroll: 1,
   responsive: [
-    {
-      breakpoint: 1536,
-      settings: {
-        slidesToShow: 5,
-      },
-    },
-    {
-      breakpoint: 1280,
-      settings: {
-        slidesToShow: 4,
-      },
-    },
     {
       breakpoint: 1024,
       settings: {
@@ -59,15 +33,13 @@ const settings = {
     {
       breakpoint: 768,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
       },
     },
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 1,
-        centerMode: true,
-        centerPadding: '20px',
+        slidesToShow: 3,
       },
     },
   ],
@@ -84,7 +56,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.6 }}
           className="text-3xl font-semibold text-gray-800"
         >
-          Why Choose Us ?
+          WHY CHOOSE US ?
         </motion.h2>
       </div>
 
@@ -100,7 +72,12 @@ const WhyChooseUs = () => {
               className="flex items-center justify-center"
             >
               <div className="flex flex-col items-center justify-center text-center w-full px-1 sm:px-2">
-                <div className="mb-2 sm:mb-3">{item.icon}</div>
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="w-12 h-12 object-contain mb-2 sm:mb-3"
+                  loading="lazy"
+                />
                 <p className="text-xs sm:text-sm text-gray-700 px-1">{item.title}</p>
               </div>
             </motion.div>

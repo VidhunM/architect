@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "/images/logo2.png";
+import logo from "/images/logo2f.png";
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -68,31 +68,43 @@ const Header = () => {
                 </svg>
               </button>
               {isDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-md border border-gray-200 z-50">
+                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md border border-gray-200 z-50">
+                  <button
+                    onClick={() => scrollToSection("vision")}
+                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                  >
+                    Our Vision
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("our-philosophy")}
+                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                  >
+                    Our Philosophy
+                  </button>
                   <button
                     onClick={() => scrollToSection("our-team")}
-                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors rounded-md"
+                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
                   >
                     Our Team
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("what-we-do")}
+                    className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                  >
+                    Our Service
                   </button>
                 </div>
               )}
             </div>
 
             <button
-              onClick={() => scrollToSection("what-we-do")}
-              className="text-gray-700 font-medium hover:text-blue-900 transition-colors"
-            >
-              Our Service
-            </button>
-            <button
-              onClick={() => scrollToSection("portfolio")}
+              onClick={() => scrollToSection("architecture")}
               className="text-gray-700 font-medium hover:text-blue-900 transition-colors"
             >
               Architecture
             </button>
             <button
-              onClick={() => scrollToSection("design-ideas")}
+              onClick={() => scrollToSection("from-ceo-desk")}
               className="text-gray-700 font-medium hover:text-blue-900 transition-colors"
             >
               Interior
@@ -103,17 +115,23 @@ const Header = () => {
             >
               Project Management
             </button>
+            <button
+              onClick={() => scrollToSection("careers")}
+              className="text-gray-700 font-medium hover:text-blue-900 transition-colors"
+            >
+              Careers
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="text-gray-700 font-medium hover:text-blue-900 transition-colors"
+            >
+              Contact Us
+            </button>
           </div>
         </nav>
 
-        {/* CTA + Mobile Menu Button */}
+        {/* Mobile Menu Button */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="hidden md:inline-block bg-blue-900 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-800 transition-colors"
-          >
-            Get Free Estimate
-          </button>
           <button
             className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-gray-300 text-gray-700"
             onClick={() => setIsMobileOpen((v) => !v)}
@@ -180,27 +198,39 @@ const Header = () => {
             {isDropdownOpen && (
               <div className="pl-4">
                 <button
+                  onClick={() => scrollToSection("vision")}
+                  className="block w-full text-left py-2 text-sm text-gray-700"
+                >
+                  Our Vision
+                </button>
+                <button
+                  onClick={() => scrollToSection("our-philosophy")}
+                  className="block w-full text-left py-2 text-sm text-gray-700"
+                >
+                  Our Philosophy
+                </button>
+                <button
                   onClick={() => scrollToSection("our-team")}
                   className="block w-full text-left py-2 text-sm text-gray-700"
                 >
                   Our Team
                 </button>
+                <button
+                  onClick={() => scrollToSection("what-we-do")}
+                  className="block w-full text-left py-2 text-sm text-gray-700"
+                >
+                  Our Service
+                </button>
               </div>
             )}
             <button
-              onClick={() => scrollToSection("what-we-do")}
-              className="text-gray-700 text-left py-3"
-            >
-              Our Service
-            </button>
-            <button
-              onClick={() => scrollToSection("portfolio")}
+              onClick={() => scrollToSection("architecture")}
               className="text-gray-700 text-left py-3"
             >
               Architecture
             </button>
             <button
-              onClick={() => scrollToSection("design-ideas")}
+              onClick={() => scrollToSection("from-ceo-desk")}
               className="text-gray-700 text-left py-3"
             >
               Interior
@@ -212,10 +242,16 @@ const Header = () => {
               Project Management
             </button>
             <button
-              onClick={() => scrollToSection("contact")}
-              className="mt-3 bg-blue-900 text-white font-semibold px-4 py-3 rounded-md hover:bg-blue-800 transition-colors"
+              onClick={() => scrollToSection("careers")}
+              className="text-gray-700 text-left py-3"
             >
-              Get Free Estimate
+              Careers
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="text-gray-700 text-left py-3"
+            >
+              Contact Us
             </button>
           </div>
         </div>
